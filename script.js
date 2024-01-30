@@ -1,40 +1,35 @@
+
 const myAudios = document.querySelector("#audio");
 const progressBar = document.querySelector("#progress");
 const ctrIcon = document.querySelector("#ctrIcon");
 
+myAudios.addEventListener('loadedmetadata', function() {
+    progressBar.max = myAudios.duration;
+    progressBar.value = myAudios.currentTime;
+});
 
-myAudios.addEventListener('click', function(e) {
-    progressBar.max = e.target.duration;
-    progressBar.value = e.target.currentTime;
+myAudios.addEventListener('timeupdate', function() {
+    progressBar.value = myAudios.currentTime;
+});
 
-  
-  });
-
-
-  const playPause = () => {
-
-    if (ctrIcon.classList.contains("fa-pause",'fa-play')) {
-      myAudios.pause();
-      ctrIcon.classList.add("fa-play");
-      ctrIcon.classList.remove("fa-pause");
+const playPause = () => {
+    if (myAudios.paused) {
+        myAudios.play();
+        ctrIcon.classList.add("fa-pause");
+        ctrIcon.classList.remove("fa-play");
     } else {
-      myAudios.play();
-      ctrIcon.classList.add("fa-pause");
-      ctrIcon.classList.remove("fa-play");
+        myAudios.pause();
+        ctrIcon.classList.add("fa-play");
+        ctrIcon.classList.remove("fa-pause");
     }
-  };
+};
 
-
-  if(myAudios.play()){
-    setInterval(()=>{
-progressBar.value = myAudios.currentTime;
-    },500)
-  }
-  
-
-  progressBar.addEventListener("change",()=>{
-    myAudios.play();
+progressBar.addEventListener("input", () => {
     myAudios.currentTime = progressBar.value;
-    ctrIcon.classList.add("fa-pause");
-    ctrIcon.classList.remove("fa-play");
-  })
+});
+
+myAudios.addEventListener('ended', function() {
+   
+    ctrIcon.classList.add("fa-play");
+    ctrIcon.classList.remove("fa-pause");
+});

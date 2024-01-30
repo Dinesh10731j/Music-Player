@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music-Player</title>
+    <link rel="stylesheet" href="./public/style.css">
+    <script src="https://kit.fontawesome.com/8c954f3ba6.js" crossorigin="anonymous"></script>
+   
+</head>
+
+<body>
+  
+
+    <main>
+<section id="Music-Player">
+<section id="bars">
+
+  <section id="right-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
+
+  </section>
+  <section id="three-dot-bar">
+    <i class="fa-solid fa-ellipsis-vertical"></i>
+
+  </section>
+</section>
+
+<section id="music-image">
+  <img src="./images/music.jpg" alt="music-image"/>
+</section>
+
+<section id="music-info">
+<h1>Break Beat</h1>
+<p>Casey Veggies && Rockie Fish</p>
+</section>
+
+  <audio id="audio"> 
+    <source src="./audio/drive-breakbeat-173062.mp3" type="audio/mp3"/>
+    
+     </audio>
+     <section id="range">
+      <input type="range" value="0" id="progress">
+     </section>
+<section id="music-icons">
+  <section id="music-backward">
+    <i class="fa-solid fa-backward"></i>
+  </section>
+
+  <section id="music-play">
+    <i class="fa-solid fa-play" onclick = "playPause()"  id="ctrIcon" ></i>
+  </section>
+  <section id="music-forward">
+    <i class="fa-solid fa-forward"></i>
+  </section>
+</section>
+
+ 
+</section>
+    </main>
+ 
+    <script src="./public/script.js"></script>
+</body>
+
+</html>
